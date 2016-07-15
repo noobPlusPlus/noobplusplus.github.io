@@ -19,6 +19,8 @@ author :
   twitter : username
   feedburner : feedname
 
+  THEME-NAME: twitter
+
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
 # Most places will/should use BASE_PATH to make the urls
@@ -58,6 +60,7 @@ JB :
   #     This means always setting the protocol (http|https) or prefixing with "/"
   BASE_PATH : 
 
+
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
   #
@@ -66,7 +69,7 @@ JB :
   #   http://s3.amazonaws.com/yoursite/themes/watermelon
   #   /assets
   #
-  ASSET_PATH : False
+  ASSET_PATH : http://nzyt1.github.io/assets/themes/twitter
 
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change them here if needed.
