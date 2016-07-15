@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>nzyt1's Blog</title>
+ <link href="http://nzyt1.github.io/blog/" rel="self"/>
+ <link href="http://nzyt1.github.io/blog"/>
+ <updated>2016-07-15T15:51:29+08:00</updated>
+ <id>http://nzyt1.github.io/blog</id>
+ <author>
+   <name>倪志洋</name>
+   <email>nizyt1@163.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Welcome</title>
+   <link href="http://nzyt1.github.io/blog/2016/07/15/welcome"/>
+   <updated>2016-07-15T00:00:00+08:00</updated>
+   <id>http://nzyt1.github.io/blog/2016/07/15/welcome</id>
+   <content type="html">&lt;h1&gt;&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+欢迎来到这里!
+ 
+&lt;/pre&gt;
+
+</content>
+ </entry>
+ 
+ 
+</feed>

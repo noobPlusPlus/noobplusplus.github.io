@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>nzyt1's Blog</title>
+        <description>nzyt1's Blog - 倪志洋</description>
+        <link>http://nzyt1.github.io/blog</link>
+        <link>http://nzyt1.github.io/blog</link>
+        <lastBuildDate>2016-07-15T15:51:29+08:00</lastBuildDate>
+        <pubDate>2016-07-15T15:51:29+08:00</pubDate>
+        <ttl>1800</ttl>
+
+
+        <item>
+                <title>Welcome</title>
+                <description>&lt;h1&gt;&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+欢迎来到这里!
+ 
+&lt;/pre&gt;
+
+</description>
+                <link>http://nzyt1.github.io/blog/2016/07/15/welcome</link>
+                <guid>http://nzyt1.github.io/blog/2016/07/15/welcome</guid>
+                <pubDate>2016-07-15T00:00:00+08:00</pubDate>
+        </item>
+
+
+</channel>
+</rss>
