@@ -4,7 +4,7 @@
  <title>nzyt1's Blog</title>
  <link href="http://nzyt1.github.io/" rel="self"/>
  <link href="http://nzyt1.github.io"/>
- <updated>2016-07-16T10:31:11+08:00</updated>
+ <updated>2016-07-16T11:16:21+08:00</updated>
  <id>http://nzyt1.github.io</id>
  <author>
    <name>倪志洋</name>
@@ -13,16 +13,16 @@
 
  
  <entry>
-   <title>Welcome</title>
-   <link href="http://nzyt1.github.io/2016/07/15/welcome"/>
+   <title>欢迎!</title>
+   <link href="http://nzyt1.github.io/2016/07/15/%E6%AC%A2%E8%BF%8E"/>
    <updated>2016-07-15T00:00:00+08:00</updated>
-   <id>http://nzyt1.github.io/2016/07/15/welcome</id>
+   <id>http://nzyt1.github.io/2016/07/15/欢迎</id>
    <content type="html">
-&lt;h2 id=&quot;section&quot;&gt;#&lt;/h2&gt;
+&lt;hr /&gt;
 
+&lt;p&gt;欢迎来到这里!&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums&quot;&gt;
-欢迎来到这里!
- 
+Hello World!
 &lt;/pre&gt;
 
 </content>
