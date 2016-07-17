@@ -2,11 +2,11 @@
 <rss version="2.0">
 <channel>
         <title>nzyt1's Blog</title>
-        <description>nzyt1's Blog - 倪志洋</description>
+        <description>nzyt1's Blog - 景支</description>
         <link>http://nzyt1.github.io</link>
         <link>http://nzyt1.github.io</link>
-        <lastBuildDate>2016-07-17T19:33:50+08:00</lastBuildDate>
-        <pubDate>2016-07-17T19:33:50+08:00</pubDate>
+        <lastBuildDate>2016-07-17T19:39:01+08:00</lastBuildDate>
+        <pubDate>2016-07-17T19:39:01+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -104,7 +104,7 @@ $ git clone xxxxxx
 
 &lt;pre class=&quot;prettyprint linenums&quot;&gt;
 ...
-title : nzyt1&#39;s Blog
+title : Blog
 tagline: Site Tagline
 author :
   name : xxx
