@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>欢迎!</title>
+    <title>使用jekyll和github搭建静态博客</title>
     
     <meta name="author" content="倪志洋">
 
@@ -111,7 +111,7 @@
         
 <!--
 <div class="page-header">
-  <h1>欢迎! <small>Supporting tagline</small></h1>
+  <h1>使用jekyll和github搭建静态博客 <small>Supporting tagline</small></h1>
 </div>
 -->
  
@@ -121,21 +121,151 @@
     <div class="content card">
         <div class="date_label">
           <div class="day_month">
-          07/15
+          07/16
           </div>
           <div class="year">
           2016
           </div>
         </div>
       
-<h1 id="section">欢迎!</h1>
+<h1 id="jekyllgithub">使用jekyll,github搭建博客</h1>
 
 <hr />
 
-<p>欢迎来到这里!</p>
+<p>很早之前,巨总就推荐了jekyll,之前尝试过一次,不过当时正处于某种神奇的状态下.玩了会没成功,就不想弄了.时光一晃,那么久就过去了,回头还是想起来要搭建这个博客.</p>
+
+<h2 id="section">环境说明</h2>
+<p>由于使用上习惯了Linux(debian系)的操作,所以本博客所有技术内容,没有特殊说明,全部在Linux下使用.</p>
+
+<h3 id="vim">VIM</h3>
+<p>Vim是Linux下的大杀器,涉及到编辑的东西,全部只需要一个VIM即可解决问题,给VIM配上各种各样的插件也是成长的必备要素.再此不作详解.</p>
+
+<!--break-->
+
+<h2 id="section-1">安装</h2>
+
+<h3 id="ruby">Ruby</h3>
+<p>Jekyll的安装需要Gem的支撑.所以首先需要安装Ruby和Gem,但是不用担心,你并不需要会Ruby,一样玩的转Jekyll.</p>
+
+<p>Debian系的使用下面的命令安装Ruby.</p>
 <pre class="prettyprint linenums">
-Hello World!
+$ sudo apt-get install ruby-full
 </pre>
+<p>RH系的使用下面的命令安装Ruby.</p>
+<pre class="prettyprint linenums">
+$ sudo yum install ruby
+</pre>
+<p>安装好之后,输入一下命令</p>
+<pre class="prettyprint linenums">
+$ ruby -v
+</pre>
+<p>如果显示的是类似:</p>
+<pre class="prettyprint linenums">
+$ ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+</pre>
+<p>则说明你安装成功啦~!
+撒花~~~!</p>
+
+<p>然后更新GEM … 由于我们伟大的GFW,hmm … 还需要更换成国内的源 … 
+参见 <a href="https://ruby.taobao.org/">RubyGems镜像</a></p>
+
+<pre class="prettyprint linenums">
+$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+https://ruby.taobao.org
+# 请确保只有 ruby.taobao.org
+</pre>
+
+<p>此处已经把Ruby环境搭建好.进入下一步.</p>
+
+<h3 id="jekyll">Jekyll</h3>
+<p>使用gem安装Jekyll</p>
+<pre class="prettyprint linenums">
+$ gem install jekyll
+</pre>
+
+<p>OK … 至此,你已经完成了所有的环境配置.</p>
+
+<h2 id="section-2">搭建</h2>
+<p>根据<a href="jekyll.bootcss.com">jekyll中文文档</a>的介绍,</p>
+
+<pre class="prettyprint linenums">
+$ jekyll new my-awesome-site
+$ cd my-awesome-site
+$ jekyll serve
+
+# =&gt; Now browse to http://localhost:4000 
+</pre>
+<p>这样就开始建立自己的博客啦.</p>
+
+<p>但是由于,后期还要进行模板的挑选,而我们一般都是直接用的别人的整个模板.所以前一步其实是多余的.
+直接找到自己喜欢的模板,git clone 下来.
+我挑选的 <a href="http://enml.github.io/site/">寂寞先生</a>的模板.</p>
+<pre class="prettyprint linenums">
+$ git clone git@github.com:enml/blog.git
+</pre>
+
+<p>然后去自己的github上建立,自己的repositorie,命名一定是 username.github.io</p>
+
+<p>随后git clone 下来.</p>
+<pre class="prettyprint linenums">
+$ git clone xxxxxx
+</pre>
+
+<p>然后将模板的非隐藏文件,全部复制到自己的username.github.io的仓库下.
+修改 _config.yml 文件.</p>
+
+<pre class="prettyprint linenums">
+...
+title : nzyt1's Blog
+tagline: Site Tagline
+author :
+  name : xxx
+  email : xxx@xxx.xxx
+  github : xxx
+  twitter : xxx
+  feedburner : xxx
+...
+</pre>
+
+<p>其中,最重要的是,在github上使用,</p>
+
+<pre class="prettyprint linenums">
+BASE_PATH: 空
+ASSET_PATH: 绝对地址
+</pre>
+
+<p>随后</p>
+
+<pre class="prettyprint linenums">
+$ git add -A
+$ git commit -m -a
+$ git push origin master
+</pre>
+
+<p>访问,username.github.io即可查看.</p>
+
+<h2 id="section-3">其他</h2>
+<p>由于我编辑markdown也是在vim下,所以需要用到几个不错的插件.
+<a href="https://github.com/plasticboy/vim-markdown">avim-markdown</a>
+<a href="https://github.com/iamcco/markdown-preview.vim">markdown-preview.vim</a></p>
+
+<p>另外,留言板可以使用disqus,
+首先去申请个账号,然后在 _config.yml中找到comments</p>
+<pre class="prettyprint linenums">
+  comments :
+    provider : disqus
+    disqus :
+      short_name : 账号
+</pre>
+
+<h2 id="section-4">后记:</h2>
+<p>博客的名字暂时也还没想好,以后就用来写写技术,写写文章吧.
+权当是一种释放吧.</p>
+
+<p>若有不懂的地方,可以留言,或者联系 nizyt1@163.com</p>
 
 
     </div>
@@ -181,11 +311,11 @@ Hello World!
     <div class="pagination clearfix">
       <ul class = "pull-right">
       
-        <li class="prev disabled" ><a class="fa fa-arrow-circle-left"> 前一篇</a></li>
+        <li class="prev"><a class="fa fa-arrow-circle-left" href="/2016/07/15/%E6%AC%A2%E8%BF%8E" title="欢迎!"> 前一篇</a></li>
       
         <li><a class="fa fa-th" href="/archive.html"> 所有日志</a></li>
       
-        <li class="next"><a  href="/2016/07/16/%E5%8D%9A%E5%AE%A2%E6%8A%80%E6%9C%AF" title="使用jekyll和github搭建静态博客">后一篇 <span class="fa fa-arrow-circle-right">  </span></a></li>
+        <li class="next disabled"><a >后一篇 <span class="fa fa-arrow-circle-right">  </span></a>
       
       </ul>
     </div>

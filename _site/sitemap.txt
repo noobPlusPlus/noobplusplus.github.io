@@ -8,4 +8,5 @@ http://nzyt1.github.io/rss.xml
 http://nzyt1.github.io/sitemap.txt
 http://nzyt1.github.io/tags
 
+http://nzyt1.github.io/2016/07/16/%E5%8D%9A%E5%AE%A2%E6%8A%80%E6%9C%AF
 http://nzyt1.github.io/2016/07/15/%E6%AC%A2%E8%BF%8E

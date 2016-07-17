@@ -5,14 +5,164 @@
         <description>nzyt1's Blog - 倪志洋</description>
         <link>http://nzyt1.github.io</link>
         <link>http://nzyt1.github.io</link>
-        <lastBuildDate>2016-07-16T11:16:21+08:00</lastBuildDate>
-        <pubDate>2016-07-16T11:16:21+08:00</pubDate>
+        <lastBuildDate>2016-07-17T19:33:50+08:00</lastBuildDate>
+        <pubDate>2016-07-17T19:33:50+08:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
+                <title>使用jekyll和github搭建静态博客</title>
+                <description>
+&lt;h1 id=&quot;jekyllgithub&quot;&gt;使用jekyll,github搭建博客&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;很早之前,巨总就推荐了jekyll,之前尝试过一次,不过当时正处于某种神奇的状态下.玩了会没成功,就不想弄了.时光一晃,那么久就过去了,回头还是想起来要搭建这个博客.&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;环境说明&lt;/h2&gt;
+&lt;p&gt;由于使用上习惯了Linux(debian系)的操作,所以本博客所有技术内容,没有特殊说明,全部在Linux下使用.&lt;/p&gt;
+
+&lt;h3 id=&quot;vim&quot;&gt;VIM&lt;/h3&gt;
+&lt;p&gt;Vim是Linux下的大杀器,涉及到编辑的东西,全部只需要一个VIM即可解决问题,给VIM配上各种各样的插件也是成长的必备要素.再此不作详解.&lt;/p&gt;
+
+&lt;!--break--&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;安装&lt;/h2&gt;
+
+&lt;h3 id=&quot;ruby&quot;&gt;Ruby&lt;/h3&gt;
+&lt;p&gt;Jekyll的安装需要Gem的支撑.所以首先需要安装Ruby和Gem,但是不用担心,你并不需要会Ruby,一样玩的转Jekyll.&lt;/p&gt;
+
+&lt;p&gt;Debian系的使用下面的命令安装Ruby.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ sudo apt-get install ruby-full
+&lt;/pre&gt;
+&lt;p&gt;RH系的使用下面的命令安装Ruby.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ sudo yum install ruby
+&lt;/pre&gt;
+&lt;p&gt;安装好之后,输入一下命令&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ ruby -v
+&lt;/pre&gt;
+&lt;p&gt;如果显示的是类似:&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+&lt;/pre&gt;
+&lt;p&gt;则说明你安装成功啦~!
+撒花~~~!&lt;/p&gt;
+
+&lt;p&gt;然后更新GEM … 由于我们伟大的GFW,hmm … 还需要更换成国内的源 … 
+参见 &lt;a href=&quot;https://ruby.taobao.org/&quot;&gt;RubyGems镜像&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+https://ruby.taobao.org
+# 请确保只有 ruby.taobao.org
+&lt;/pre&gt;
+
+&lt;p&gt;此处已经把Ruby环境搭建好.进入下一步.&lt;/p&gt;
+
+&lt;h3 id=&quot;jekyll&quot;&gt;Jekyll&lt;/h3&gt;
+&lt;p&gt;使用gem安装Jekyll&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ gem install jekyll
+&lt;/pre&gt;
+
+&lt;p&gt;OK … 至此,你已经完成了所有的环境配置.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;搭建&lt;/h2&gt;
+&lt;p&gt;根据&lt;a href=&quot;jekyll.bootcss.com&quot;&gt;jekyll中文文档&lt;/a&gt;的介绍,&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ jekyll new my-awesome-site
+$ cd my-awesome-site
+$ jekyll serve
+
+# =&amp;gt; Now browse to http://localhost:4000 
+&lt;/pre&gt;
+&lt;p&gt;这样就开始建立自己的博客啦.&lt;/p&gt;
+
+&lt;p&gt;但是由于,后期还要进行模板的挑选,而我们一般都是直接用的别人的整个模板.所以前一步其实是多余的.
+直接找到自己喜欢的模板,git clone 下来.
+我挑选的 &lt;a href=&quot;http://enml.github.io/site/&quot;&gt;寂寞先生&lt;/a&gt;的模板.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ git clone git@github.com:enml/blog.git
+&lt;/pre&gt;
+
+&lt;p&gt;然后去自己的github上建立,自己的repositorie,命名一定是 username.github.io&lt;/p&gt;
+
+&lt;p&gt;随后git clone 下来.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ git clone xxxxxx
+&lt;/pre&gt;
+
+&lt;p&gt;然后将模板的非隐藏文件,全部复制到自己的username.github.io的仓库下.
+修改 _config.yml 文件.&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+...
+title : nzyt1&#39;s Blog
+tagline: Site Tagline
+author :
+  name : xxx
+  email : xxx@xxx.xxx
+  github : xxx
+  twitter : xxx
+  feedburner : xxx
+...
+&lt;/pre&gt;
+
+&lt;p&gt;其中,最重要的是,在github上使用,&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+BASE_PATH: 空
+ASSET_PATH: 绝对地址
+&lt;/pre&gt;
+
+&lt;p&gt;随后&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+$ git add -A
+$ git commit -m -a
+$ git push origin master
+&lt;/pre&gt;
+
+&lt;p&gt;访问,username.github.io即可查看.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;其他&lt;/h2&gt;
+&lt;p&gt;由于我编辑markdown也是在vim下,所以需要用到几个不错的插件.
+&lt;a href=&quot;https://github.com/plasticboy/vim-markdown&quot;&gt;avim-markdown&lt;/a&gt;
+&lt;a href=&quot;https://github.com/iamcco/markdown-preview.vim&quot;&gt;markdown-preview.vim&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;另外,留言板可以使用disqus,
+首先去申请个账号,然后在 _config.yml中找到comments&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums&quot;&gt;
+  comments :
+    provider : disqus
+    disqus :
+      short_name : 账号
+&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;后记:&lt;/h2&gt;
+&lt;p&gt;博客的名字暂时也还没想好,以后就用来写写技术,写写文章吧.
+权当是一种释放吧.&lt;/p&gt;
+
+&lt;p&gt;若有不懂的地方,可以留言,或者联系 nizyt1@163.com&lt;/p&gt;
+
+</description>
+                <link>http://nzyt1.github.io/2016/07/16/%E5%8D%9A%E5%AE%A2%E6%8A%80%E6%9C%AF</link>
+                <guid>http://nzyt1.github.io/2016/07/16/博客技术</guid>
+                <pubDate>2016-07-16T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
                 <title>欢迎!</title>
                 <description>
+&lt;h1 id=&quot;section&quot;&gt;欢迎!&lt;/h1&gt;
+
 &lt;hr /&gt;
 
 &lt;p&gt;欢迎来到这里!&lt;/p&gt;
