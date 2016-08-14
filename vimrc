@@ -75,6 +75,14 @@ filetype plugin indent on    " required
 " Common config
 set nu
 set laststatus=2
+autocmd InsertLeave * se nocul " 用浅色高亮当前行
+autocmd InsertEnter * se cul " 用浅色高亮当前行
+set autoread " 自动载入
+set confirm
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab " 不用空格代替tab
 
 " NERDTree config
 " autocmd vimenter * NERDTree
