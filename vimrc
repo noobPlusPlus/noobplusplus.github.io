@@ -27,7 +27,7 @@ Plugin 'L9'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'Valloric/ListToggle'
 
@@ -43,7 +43,7 @@ Plugin 'Lokaltog/vim-powerline'
 
 Plugin 'scrooloose/syntastic'
 
-Plugin 'wakatime/vim-wakatime'
+"Plugin 'wakatime/vim-wakatime'
 
 Plugin 'kevinw/pyflakes-vim'
 
@@ -57,6 +57,14 @@ Plugin 'plasticboy/vim-markdown'
 
 Plugin 'iamcco/markdown-preview.vim'
 
+Plugin 'tomasr/molokai'
+
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'powerline/fonts'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -64,14 +72,59 @@ filetype plugin indent on    " required
 "filetype plugin on
 "
 
+" Common config
+set nu
+set laststatus=2
+
 " NERDTree config
 " autocmd vimenter * NERDTree
 nmap <F2> :NERDTreeToggle<Cr>
 let NERDTreeIgnore=['\.pyc$']
 
-" vim-powerline config
-let g:Powerline_symblos = 'fancy'
+" Airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_poweline_fonts=1
 
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ''
+
+" old vim-powerline symbols
+" let g:airline_left_sep = '⮀'
+" let g:airline_left_alt_sep = '⮁'
+" let g:airline_right_sep = '⮂'
+" let g:airline_right_alt_sep = '⮃'
+" let g:airline_symbols.branch = '⭠'
+" let g:airline_symbols.readonly = '⭤'
+" let g:airline_symbols.linenr = '⭡'
 
 " ctrlp.vim config
 set rtp+=~/.vim/bundle/ctrlp.vim
@@ -150,12 +203,12 @@ nmap <C-F10> :vertical resize+20<CR>
 let g:tex_conceal = ""
 
 " setting clang
-let g:ycm_auto_trigger = 1
-let g:clang_complete_auto = 0
-let g:clang_use_library = 0
-let g:clang_debug = 0
-let g:clang_library_path = '/usr/lib/'
-let g:clang_user_options='|| exit 0'
+"let g:ycm_auto_trigger = 1
+"let g:clang_complete_auto = 0
+"let g:clang_use_library = 0
+"let g:clang_debug = 0
+"let g:clang_library_path = '/usr/lib/'
+"let g:clang_user_options='|| exit 0'
 "
 
 " Jedi setting
