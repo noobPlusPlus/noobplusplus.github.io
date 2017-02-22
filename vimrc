@@ -27,13 +27,17 @@ Plugin 'L9'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'Valloric/ListToggle'
 
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+Plugin 'a.vim'
+
+Plugin 'c.vim'
 
 Plugin 'tacahiroy/ctrlp-funky'
 
@@ -43,7 +47,7 @@ Plugin 'Lokaltog/vim-powerline'
 
 Plugin 'scrooloose/syntastic'
 
-"Plugin 'wakatime/vim-wakatime'
+Plugin 'wakatime/vim-wakatime'
 
 Plugin 'kevinw/pyflakes-vim'
 
@@ -164,15 +168,33 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_enable_highlighting=1
+let g:syntastic_loc_list_height = 5
+function! ToggleErrors()
+	let old_last_winnr = winnr('$')
+	lclose
+	if old_last_winnr == winnr('$')
+		" Nothing was closed, open syntastic errorlocation panel
+		Errors
+	endif
+endfunction
+nnoremap <Leader>s :call ToggleErrors()<cr>
 
 nnoremap <silent> <F12> :lclose<CR>
 nnoremap <silent> <C-F12> :lopen<CR>
 
 " universal ctags config
+map <F4> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+imap <F4> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+set tags=tags
+set tags+=./tags "add current directory's generated tags file
 
 let g:pyflakes_use_quickfix = 0
 
@@ -210,13 +232,32 @@ nmap <C-F10> :vertical resize+20<CR>
 
 let g:tex_conceal = ""
 
-" setting clang
-"let g:ycm_auto_trigger = 1
-"let g:clang_complete_auto = 0
-"let g:clang_use_library = 0
-"let g:clang_debug = 0
-"let g:clang_library_path = '/usr/lib/'
-"let g:clang_user_options='|| exit 0'
+" setting ycm
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_register_as_syntastic_checker = 1 "default 1
+let g:ycm_show_diagnostics_ui = 0 "default 1
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+
+
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+
+let g:ycm_auto_trigger = 1
+
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" set clang
+let g:clang_complete_auto = 0
+let g:clang_use_library = 0
+let g:clang_debug = 0
+let g:clang_library_path = '/usr/lib/'
+let g:clang_user_options='|| exit 0'
 "
 
 " Jedi setting
@@ -280,3 +321,24 @@ let g:mkdp_path_to_chrome = "firefox"
 " path to the chrome or the command to open chrome(or other modern browsers)
 map <silent> <F7> <Plug>MarkdownPreview
 map <silent> <C-F7> <Plug>StopMarkdownPreview
+
+" Set <F5> auto Compile and Running
+map <F5> :call CompileAndRun()<CR>
+func! CompileAndRun()
+	exec "w"
+	if &filetype == 'c'
+		exec "!g++ % -o %<"
+		exec "! ./%<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %<"
+		exec "! ./%<"
+	elseif &filetype == 'java'
+		exec "!javac %"
+		exec "!java %<"
+	elseif &filetype == 'python'
+		exec "!python %"
+	elseif &filetype == 'sh'
+		:!./%
+	endif
+endfunc
+
