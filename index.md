@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 并没有想好
+title: noob's blog
 tagline: 随便看看
 ---
 {% include JB/setup %}
