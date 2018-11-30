@@ -1,15 +1,20 @@
 ---
 layout: post
-title: Test
-category: 博客相关
+title: TEST!
+category : 博客相关
 tagline: "Supporting tagline"
-tags: [blog]
+tags : [blog]
 published: true
 ---
 {% include JB/setup %}
-# Test
+# 欢迎!
 
 ---
+
+欢迎来到这里!
+<pre class="prettyprint linenums">
+Hello World!
+</pre>
 
 A First Level Header
 ====
@@ -67,7 +72,6 @@ I get 10 times more traffic from [google][1] than from [yahoo][2] or [MSN][3].
 [1]:http://google.com/ "google"
 [2]: http://search.yahoo.com/ "Yahoo Search"
 [3]: http://search.msn.com/ "MSN Search"
-
 
 {% if page.comments %}
 <div id="disqus_thread"></div>
